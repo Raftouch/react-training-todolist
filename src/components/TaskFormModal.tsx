@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { data } from "../data/tasks";
 import "./TaskFormModal.css";
 
 type TaskFormModalProps = {
@@ -15,10 +16,21 @@ export const TaskFormModal = ({
   initialValues,
 }: TaskFormModalProps) => {
   const [title, setTitle] = useState(initialValues?.title ?? undefined);
-  const [description, setDescription] = useState(
-    initialValues?.description ?? undefined
-  );
+  useEffect(() => {
 
+    setTitle(initialValues?.title);
+    console.log();
+  }, [initialValues?.title]);
+
+  const [description, setDescription] = useState(initialValues?.description ?? undefined);
+  useEffect(() => {
+    
+    setDescription(initialValues?.description);
+    console.log();
+  }, [initialValues?.description]);
+
+  // ? --> = not necessary
+  // props --> read oonly dans enfants (pas possible de les changer/supprimer)
   // Use a hook to listen to the initial values changes here
 
   if (!show) return null;
@@ -29,13 +41,12 @@ export const TaskFormModal = ({
         <button
           className="close-btn"
           type="button"
-          onClick={() => "The modal should close iteself"}
+          onClick={() => handleClose()}
         >
           X
         </button>
         <h3>Nouvelle tâche</h3>
-        <form
-          onSubmit={(e) => addOrEditTask(e, initialValues?.id)}
+        <form onSubmit={(e) => addOrEditTask(e, initialValues?.id)}
           className="task-form"
         >
           <label>
@@ -60,7 +71,8 @@ export const TaskFormModal = ({
           </label>
           <div className="form-actions">
             <button type="submit">Enregistrer</button>
-            <button onClick={() => "The modal should close iteself"}>
+            {/* setShow(false)  aussi possible*/}
+            <button onClick={() => handleClose()}> 
               Annuler
             </button>
           </div>

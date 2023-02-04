@@ -30,11 +30,11 @@ The first steps are particularly guided but as you go through the project, you w
 
 Feel free to give feedback if a step is unclear, this is really helpful !
 
-### JSX
+### JSX (1) (--check--)
 
 In App.tsx, replace the hardcoded app title by the value of the const "title".
 
-### Your first component
+### Your first component (2) (--check--)
 
 Create a Header.tsx component in the components folder that contains the code below :
 ```
@@ -45,7 +45,7 @@ Create a Header.tsx component in the components folder that contains the code be
 
 Then, in App.tsx, replace the code of the header by the component you just created.
 
-### React props
+### React props (3) (--check--)
 
 As in the previous header code, we want to use the value of the const `title` as the main app title. 
 To do that, the Header component should take a prop "title" of type string and use it in its code.
@@ -53,7 +53,7 @@ Once you added the prop to the Header component, you should see an error in the 
 
 Use the CSS given in the Header.css file in your Header component.
 
-### Use an interface
+### Use an interface (4) (--check--)
 
 Create an interface TaskType in a `Task.ts` file in the models folder that will contain :
 ```
@@ -64,7 +64,7 @@ Create an interface TaskType in a `Task.ts` file in the models folder that will 
 ```
 Update the Task component to pass a typed prop "task". To type this prop you have to use the interface.
 
-### Iterate over an array in JSX
+### Iterate over an array in JSX (5) (--check--)
 
 Use the data imported in App.tsx and stored in the `tasks` const to iterate and render as many Task components as there are tasks in the data file.
 The Task component should take a "task" prop.
@@ -75,7 +75,7 @@ Hint: Use the `map` JS method on the list of tasks.
 Congrats ! You just applied the reusability concept ;) 
 As you can see, the code of the Task component is written just one time but used multiple times in the interface.
 
-### Intermediate component and single responsibility
+### Intermediate component and single responsibility (6) (--check--)
 
 App.tsx should not have the responsibility to iterate over the tasks.
 Create an intermediate component `TasksList.tsx` that does that and display each task using the Task component. 
@@ -87,7 +87,7 @@ Checkpoint: after this step, the App.tsx should only contain 3 components:
 - `TasksList`that takes one prop
 - `TaskFormModal` as it was at the beginning of the exercise.
 
-### The most used React hook : useState
+### The most used React hook : useState (7) (--check--)
 
 The "+" button should open the `TaskFormModal.tsx`. This component will be used to:
 - create a new task
@@ -95,7 +95,7 @@ The "+" button should open the `TaskFormModal.tsx`. This component will be used 
 
 But first let's use the `useState` hook and the `show` prop to open the modal when the "+" button is clicked.
 
-### Passing functions as props
+### Passing functions as props (8) (--check--)
 
 Now you can open the modal. Good !
 But we need to be able to close it as well...
@@ -104,7 +104,7 @@ To do that, the Modal should take a function as prop to close iteself when the "
 The prop you need is already set. 
 Hint: Use the useState you created to open the modal ;)
 
-### Implement logic in the parent and trigger it in the child
+### Implement logic in the parent and trigger it in the child (9) (--check--)
 
 So, now you know how to pass a function as a prop from a parent component to a child component. 
 We'll do the same, but this time, you will have to do it entirely by implementing and using the `deleteTask` function of the App.tsx.
@@ -116,7 +116,7 @@ As the list of tasks is maintained in App.tsx, the deletion from the list has to
 
 Hint: use the `id` Task property we defined in the interface.
 
-### Retrieve data from a form to update the interface
+### Retrieve data from a form to update the interface (10) (--check--)
 
 In this step, we want to add a new task to the list. The flow is : 
 - I click on the "+" button
@@ -131,7 +131,7 @@ To do that :
 
 Hint: only the first argument of the function should be used at this step. It is a Javascript event from which you can retrieve values by using `new FormData(event.target)`.
 
-### Update state in parent from an action triggered in child component
+### Update state in parent from an action triggered in child component (11) (--check--)
 
 What's missing now ? We can create a new task, delete it but we still can't edit an existing task. 
 As we did for the delete function, we need to pass the function `editTask` as prop to the Task component.
@@ -142,7 +142,7 @@ And the `editTask` function shloud update the `taskToEdit` state by giving it th
 
 At the end of this step, we just want the modal to be opened with the task title and description displayed.
 
-### UseEffect
+### UseEffect (12)
 
 Ok, I can see that the task to edit is passed to the modal in the initialValues prop.
 But when I click on "edit", I can not see the values of title and description I jast passed...
