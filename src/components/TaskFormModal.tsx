@@ -29,10 +29,6 @@ export const TaskFormModal = ({
     console.log();
   }, [initialValues?.description]);
 
-  // ? --> = not necessary
-  // props --> read oonly dans enfants (pas possible de les changer/supprimer)
-  // Use a hook to listen to the initial values changes here
-
   if (!show) return null;
 
   return (
@@ -71,7 +67,6 @@ export const TaskFormModal = ({
           </label>
           <div className="form-actions">
             <button type="submit">Enregistrer</button>
-            {/* setShow(false)  aussi possible*/}
             <button onClick={() => handleClose()}> 
               Annuler
             </button>

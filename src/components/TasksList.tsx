@@ -4,14 +4,13 @@ import {Task} from "./Task";
 import {TaskType} from "../models/Task"; 
 
 type TasksListProps = {
-    tasks: TaskType[]; // on a typé la prop Task en tableau objet et chaque objet est de type task
+    tasks: TaskType[]; 
     deleteTask: (taskId: number) => void;
     editTask: (id: number) => void;
 }
 
 export const TasksList = ({tasks, deleteTask, editTask}:TasksListProps) => {
     return (
-        // updateTasState, editTask
         <> 
         <div className="list-container">
         {tasks.map((task: TaskType) => (
@@ -24,8 +23,6 @@ export const TasksList = ({tasks, deleteTask, editTask}:TasksListProps) => {
       ))}
         </div>
         </>
-        // on peut utiliser les chevrons vides
-        // tout doit être encapsulé dans un seul container
     )
 }
 

@@ -10,15 +10,9 @@ import { TaskType } from "./models/Task";
 
 const App = () => {
   const title = "To do list";
-  // const tasks = data;
   const [taskToEdit, setTaskToEdit]= useState<TaskType | null>(null)
-  // soit TasType (une tache qu'on add or edit) soit null (qui est là par defaut)
   const [showModal, setShowModal] = useState(false);
   const [tasks, setTasks] = useState(data);
-  // const [input, setInput] = useState('');
-  
-
-
   const updateTaskState = (taskId: number) => {
     console.error("I need to be implemented");
   };
@@ -41,8 +35,6 @@ const App = () => {
         }
         setTasks([...tasks, newTask])
       }
-    
-    // console.log(taskToEditId)
     setShowModal(false)
   };
 
@@ -58,27 +50,14 @@ const App = () => {
   const deleteTask = (taskId: number) => {
     const copyTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(copyTasks);
-
-    // setTasks((prev) => prev.filter((task) => task.id !== taskId));
-  
-
-    setTasks(copyTasks);
     console.log(taskId)
-    // delete tasks[taskId];
   };
 
   return (
     <div className="main">
       <Header title={title}/>
-      {/* <div className="header">
-        <h1>{title}</h1>
-      </div> */}
 
      <TasksList tasks={tasks} deleteTask={deleteTask} editTask={editTask}/>
-
-      {/* {tasks.map(obj => (
-        <Task task={obj}/>
-      ))} */}
 
       <button
         className="add-task-btn"
