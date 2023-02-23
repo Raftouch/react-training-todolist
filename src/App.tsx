@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Task } from "./components/Task";
 import { TaskFormModal } from "./components/TaskFormModal";
 import { data } from "./data/tasks";
 import { Header } from "./components/Header";
@@ -44,13 +43,11 @@ const App = () => {
       setTaskToEdit(task)}
       setShowModal(true);
   
-      console.log(task)
   };
 
   const deleteTask = (taskId: number) => {
     const copyTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(copyTasks);
-    console.log(taskId)
   };
 
   return (

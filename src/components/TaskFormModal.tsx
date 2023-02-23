@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../data/tasks";
 import "./TaskFormModal.css";
 
 type TaskFormModalProps = {
@@ -19,14 +18,12 @@ export const TaskFormModal = ({
   useEffect(() => {
 
     setTitle(initialValues?.title);
-    console.log();
   }, [initialValues?.title]);
 
   const [description, setDescription] = useState(initialValues?.description ?? undefined);
   useEffect(() => {
     
     setDescription(initialValues?.description);
-    console.log();
   }, [initialValues?.description]);
 
   if (!show) return null;
